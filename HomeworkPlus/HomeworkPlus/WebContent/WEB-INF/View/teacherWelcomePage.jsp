@@ -16,7 +16,7 @@
 <%@include file="Main/Templates/sideBar.html" %>
 
 
-this is the teachers page. To access shit please <a href="/HomeworkPlus/login/teacher"> login or register</a>
+this is the teachers page. To access the site please <a href="/HomeworkPlus/login/teacher"> login or register</a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

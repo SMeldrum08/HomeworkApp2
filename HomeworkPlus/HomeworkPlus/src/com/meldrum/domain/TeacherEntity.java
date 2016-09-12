@@ -3,6 +3,8 @@ package com.meldrum.domain;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import com.meldrum.commons.BaseEntity;
 
 /*
@@ -54,10 +56,8 @@ public class TeacherEntity extends BaseEntity {
     }
 
     public void setPassword(String password) {
-	this.password = password;
-	// PasswordEncoder crypto = new Md5PasswordEncoder();
-	//
-	// this.password = crypto.encodePassword(password, null);
+	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	this.password = passwordEncoder.encode(password);
     }
 
     public int getSchoolid() {

@@ -3,7 +3,7 @@ create table teacheraccount (
 	firstName varchar2(30),
 	lastName varchar2(30),
 	userName varchar2(30),
-	password varchar2(40),
+	password varchar2(60),
 	constraint teacheraccount_pk primary key (id),
 	constraint app_teacheraccount_uk unique (userName)
 
