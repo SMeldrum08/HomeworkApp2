@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.meldrum.domain.TeacherEntity;
+import com.meldrum.domain.TeacherLoginForm;
 import com.meldrum.service.TeacherService;
 
 @Controller
@@ -19,9 +20,18 @@ public class LoginController {
     TeacherService teacherService;
 
     @RequestMapping(value = "/login/teacher", method = RequestMethod.GET)
-    public String viewStudentHomePage(Model model) {
+    public String viewTeacherLoginPage(Model model) {
+
+	model.addAttribute("teacherLoginForm", new TeacherLoginForm());
 
 	return "teacherLoginPage";
+
+    }
+
+    @RequestMapping(value = "/login/teacher/authenticate", method = RequestMethod.POST)
+    public String AuthenticateTeacherLogin(Model model) {
+
+	return "teacherWelcomePage";
 
     }
 
