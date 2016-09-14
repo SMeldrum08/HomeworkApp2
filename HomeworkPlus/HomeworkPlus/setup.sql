@@ -1,3 +1,4 @@
+
 create table teacheraccount (
 	id int PRIMARY KEY,
 	firstName varchar(30) NOT NULL,
@@ -13,4 +14,4 @@ CREATE TABLE user_roles (
   username varchar(30) NOT NULL,
   role varchar(45) NOT NULL,
   UNIQUE KEY uni_username_role (role,username),
-  FOREIGN KEY (username) REFERENCES teacheraccount (username));
+  FOREIGN KEY (username) REFERENCES teacheraccount (username) ON DELETE CASCADE);

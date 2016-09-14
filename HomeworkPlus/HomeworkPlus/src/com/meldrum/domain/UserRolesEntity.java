@@ -1,6 +1,10 @@
 package com.meldrum.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.meldrum.commons.BaseEntity;
@@ -26,6 +30,8 @@ public class UserRolesEntity extends BaseEntity {
 	return username;
     }
 
+    @ManyToMany(mappedBy = "username", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "username")
     public void setUsername(String username) {
 	this.username = username;
     }
