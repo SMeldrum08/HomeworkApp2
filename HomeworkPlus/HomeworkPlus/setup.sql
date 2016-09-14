@@ -1,11 +1,16 @@
 create table teacheraccount (
-	id number,
-	firstName varchar2(30),
-	lastName varchar2(30),
-	userName varchar2(30),
-	password varchar2(60),
-	constraint teacheraccount_pk primary key (id),
-	constraint app_teacheraccount_uk unique (userName)
+	id int PRIMARY KEY,
+	firstName varchar(30) NOT NULL,
+	lastName varchar(30) NOT NULL,
+	username varchar(30) UNIQUE NOT NULL,
+	password varchar(60) NOT NULL,
+	schoolid int NOT NULL
 
-)ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
-commit;
+);
+
+CREATE TABLE user_roles (
+  user_role_id int(11) PRIMARY KEY,
+  username varchar(30) NOT NULL,
+  role varchar(45) NOT NULL,
+  UNIQUE KEY uni_username_role (role,username),
+  FOREIGN KEY (username) REFERENCES teacheraccount (username));
