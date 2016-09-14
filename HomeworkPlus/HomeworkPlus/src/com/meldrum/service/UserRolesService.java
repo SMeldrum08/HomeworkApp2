@@ -4,14 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.meldrum.dao.TeacherDao;
-import com.meldrum.domain.TeacherEntity;
+import com.meldrum.dao.UserRolesDao;
+import com.meldrum.domain.UserRolesEntity;
 
 @Service
-public class TeacherService {
+public class UserRolesService {
 
     @Autowired
-    private TeacherDao teacherDao;
+    private UserRolesDao userRolesDao;
 
     /*
      * persist user to database
@@ -22,15 +22,17 @@ public class TeacherService {
      */
 
     @Transactional
-    public boolean createTeacher(TeacherEntity teacherEntity) {
-	if (!teacherDao.checkAvailable(teacherEntity.getUserName())) {
-	    // not available, needs error message
+    public boolean createUserRole(String username, String userRole) {
 
-	    return false;
-	}
+	UserRolesEntity userRolesEntity = new UserRolesEntity();
+	userRolesEntity.setUsername(username);
+	userRolesEntity.setRole(userRole);
+
+	// there is no check if the username is unique as I am unsure if I want
+	// that to be the case in this table
 
 	try {
-	    teacherDao.save(teacherEntity);
+	    userRolesDao.save(userRolesEntity);
 	} catch (Exception e) {
 	    // needs failed to save error message
 

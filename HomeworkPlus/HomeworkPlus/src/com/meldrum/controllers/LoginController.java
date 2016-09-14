@@ -18,12 +18,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.meldrum.domain.TeacherEntity;
 import com.meldrum.domain.TeacherLoginForm;
 import com.meldrum.service.TeacherService;
+import com.meldrum.service.UserRolesService;
 
 @Controller
 public class LoginController {
 
+    String TEACHER_ROLE = "TEACHER_ROLE";
+
     @Autowired
     TeacherService teacherService;
+
+    @Autowired
+    UserRolesService userRolesService;
 
     @RequestMapping(value = "/login/teacher", method = RequestMethod.GET)
     public String viewTeacherLoginPage(Model model) {
@@ -65,6 +71,7 @@ public class LoginController {
 	    ModelMap model) {
 
 	teacherService.createTeacher(teacher);
+	userRolesService.createUserRole(teacher.getUserName(), TEACHER_ROLE);
 
 	return "teacherLoginPage";
 
