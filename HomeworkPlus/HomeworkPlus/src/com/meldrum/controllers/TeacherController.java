@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.meldrum.domain.HomeworkWrapper;
+
 @Controller
 public class TeacherController {
 
@@ -24,6 +26,8 @@ public class TeacherController {
 
     @RequestMapping(value = "/createPresetHomework", method = RequestMethod.GET)
     public String viewCreatePresetHomeworkPage(Model model) {
+
+	model.addAttribute("homeworkWrapper", new HomeworkWrapper());
 
 	return "teacherCreatePresetHomework";
 

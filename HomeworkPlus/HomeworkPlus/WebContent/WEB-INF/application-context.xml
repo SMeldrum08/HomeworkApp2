@@ -70,6 +70,8 @@
       <security:form-login
          login-page='/HomeworkPlus/login/teacher'
          default-target-url="/Homeworkplus/welcome"
+         username-parameter="username"
+         password-parameter="password"
          authentication-failure-url="/HomeworkPlus/login.html?error=true" />
  
       <security:logout logout-success-url="/login.html" />
