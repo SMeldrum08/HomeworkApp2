@@ -14,7 +14,7 @@
 <body>
 
 <%@include file="Main/Templates/topBar.html" %>
-<%@include file="Main/Templates/sideBar.html" %>
+<%@include file="Main/Templates/teacherSideBar.html" %>
 
 
 

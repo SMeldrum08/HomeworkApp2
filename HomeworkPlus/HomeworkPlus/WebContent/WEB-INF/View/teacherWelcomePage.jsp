@@ -13,7 +13,7 @@
 <body>
 
 <%@include file="Main/Templates/topBar.html" %>
-<%@include file="Main/Templates/sideBar.html" %>
+<%@include file="Main/Templates/teacherSideBar.html" %>
 
 
 this is the teachers page. To access the site please <a href="/HomeworkPlus/login/teacher"> login or register</a>
