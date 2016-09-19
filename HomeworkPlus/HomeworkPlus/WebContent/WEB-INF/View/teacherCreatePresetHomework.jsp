@@ -18,7 +18,7 @@
 
 Please select a topic for your homework and how many questions.
 
-<form:form method="POST" action="" modelAttribute="homeworkWrapper">
+<form:form method="POST" action="/HomeworkPlus/createdHomework" modelAttribute="homeworkWrapper">
              <table>
                 <tr>
                     <td><form:label path="questionType">Question Topic</form:label></td>

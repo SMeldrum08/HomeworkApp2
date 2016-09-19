@@ -3,7 +3,7 @@ package com.meldrum.domain;
 public class HomeworkWrapper {
 
     String questionType;
-    String numberOfQuestions;
+    int numberOfQuestions;
 
     public String getQuestionType() {
 	return questionType;
@@ -13,11 +13,11 @@ public class HomeworkWrapper {
 	this.questionType = questionType;
     }
 
-    public String getNumberOfQuestions() {
+    public int getNumberOfQuestions() {
 	return numberOfQuestions;
     }
 
-    public void setNumberOfQuestions(String numberOfQuestions) {
+    public void setNumberOfQuestions(int numberOfQuestions) {
 	this.numberOfQuestions = numberOfQuestions;
     }
 
