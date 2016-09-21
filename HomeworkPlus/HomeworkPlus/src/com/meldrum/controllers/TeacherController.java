@@ -1,11 +1,5 @@
 package com.meldrum.controllers;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.meldrum.domain.HomeworkWrapper;
 import com.meldrum.utility.HomeworkCreator;
-import com.sun.org.apache.xml.internal.security.utils.Base64;
 
 @Controller
 public class TeacherController {
@@ -47,22 +40,9 @@ public class TeacherController {
     public String viewCreatedHomework(@ModelAttribute("homeworkWrapper") HomeworkWrapper homework, BindingResult result,
 	    Model model) {
 
-	BufferedImage test1 = HomeworkCreator.createImage(homework.getQuestionType(), homework.getNumberOfQuestions());
-	try {
-	    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-	    ImageIO.write(test1, "png", baos);
-	    baos.flush();
-	    byte[] imageInByte = baos.toByteArray();
-	    baos.close();
+	String test1 = HomeworkCreator.createImage(homework.getQuestionType(), homework.getNumberOfQuestions());
 
-	    String encodedImage = Base64.encode(imageInByte);
-
-	    model.addAttribute("image", encodedImage);
-
-	} catch (IOException e) {
-	    System.out.println(e.getMessage());
-	}
-
+	model.addAttribute("image", test1);
 	// model.addAttribute("questionImage", test1);
 
 	return "teacherCreatedHomework";
