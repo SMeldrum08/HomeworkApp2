@@ -27,8 +27,8 @@ public class PythagStandardQuestionCreator {
 	ImageLengthWrapper length3 = null;
 
 	PythagStandardQuestionWrapper question = new PythagStandardQuestionWrapper();
-	// int imageUsed = Random.randomInt(0, 2);
-	int imageUsed = 0;
+	int imageUsed = Random.randomInt(0, 2);
+	// int imageUsed = 0;
 
 	URL url = new URL("http://localhost:8080/HomeworkPlus/Resources/" + pythagImages[imageUsed]);
 	BufferedImage image = ImageIO.read(url);
@@ -50,6 +50,16 @@ public class PythagStandardQuestionCreator {
 	    lengthLong = new ImageLengthWrapper(148, 106, values.get(0));
 	    length2 = new ImageLengthWrapper(150, 255, values.get(1));
 	    length3 = new ImageLengthWrapper(457, 129, values.get(2));
+	} // (192,261) (116,124)(364,135)
+	if (imageUsed == 1) {
+	    lengthLong = new ImageLengthWrapper(192, 261, values.get(0));
+	    length2 = new ImageLengthWrapper(116, 124, values.get(1));
+	    length3 = new ImageLengthWrapper(364, 135, values.get(2));
+	} // Pythag3: (140,127) (105,266) (7,138)
+	if (imageUsed == 2) {
+	    lengthLong = new ImageLengthWrapper(140, 127, values.get(0));
+	    length2 = new ImageLengthWrapper(105, 266, values.get(1));
+	    length3 = new ImageLengthWrapper(7, 138, values.get(2));
 	}
 
 	lengthList.add(lengthLong);

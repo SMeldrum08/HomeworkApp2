@@ -32,6 +32,7 @@ public class ImageCreator {
     }
 
     public static void addLength(Graphics2D g2d, ImageLengthWrapper length) {
+
 	String s = length.getNumber() + length.getUnit();
 	g2d.drawString(s, length.getX(), length.getY());
 
