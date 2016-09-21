@@ -45,6 +45,7 @@ public class TeacherController {
 		homework.getNumberOfQuestions());
 
 	model.addAttribute("image", test1.getEncodedQuestionImage());
+	model.addAttribute("answer", test1.getAnswer());
 	// model.addAttribute("questionImage", test1);
 
 	return "teacherCreatedHomework";
