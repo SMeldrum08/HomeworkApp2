@@ -2,7 +2,6 @@ package com.meldrum.utility;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
@@ -23,13 +22,7 @@ public class HomeworkCreator {
 	    image = ImageIO.read(url);
 	    image = process(image);
 
-	    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-	    ImageIO.write(image, "png", baos);
-	    baos.flush();
-	    byte[] imageInByte = baos.toByteArray();
-	    baos.close();
-
-	    encodedImage = Base64.encode(imageInByte);
+	    encodedImage = toByteArray(image);
 	} catch (IOException e1) {
 	    // TODO Auto-generated catch block
 	    e1.printStackTrace();
@@ -48,12 +41,23 @@ public class HomeworkCreator {
 	g2d.setPaint(Color.black);
 	g2d.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 	String s = "10cm";
-	FontMetrics fm = g2d.getFontMetrics();
-	int x = img.getWidth() - fm.stringWidth(s) - 5;
-	int y = fm.getHeight();
 	g2d.drawString(s, 148, 106);
 	g2d.dispose();
 	return img;
+    }
+
+    private static String toByteArray(BufferedImage image) throws IOException {
+
+	ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	ImageIO.write(image, "png", baos);
+	baos.flush();
+	byte[] imageInByte = baos.toByteArray();
+	baos.close();
+
+	String encodedImage = Base64.encode(imageInByte);
+
+	return encodedImage;
+
     }
 
 }
