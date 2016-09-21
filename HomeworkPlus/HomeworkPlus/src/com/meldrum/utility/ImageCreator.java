@@ -4,9 +4,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
+
 import com.meldrum.domain.ImageLengthWrapper;
+import com.sun.org.apache.xml.internal.security.utils.Base64;
 
 public class ImageCreator {
 
@@ -30,6 +35,28 @@ public class ImageCreator {
 	String s = length.getNumber() + length.getUnit();
 	g2d.drawString(s, length.getX(), length.getY());
 
+    }
+
+    public static String toByteArray(BufferedImage image) throws IOException {
+
+	ByteArrayOutputStream baos = new ByteArrayOutputStream();
+	ImageIO.write(image, "png", baos);
+	baos.flush();
+	byte[] imageInByte = baos.toByteArray();
+	baos.close();
+
+	String encodedImage = Base64.encode(imageInByte);
+
+	return encodedImage;
+
+    }
+
+    public static String processImageThenEncode(BufferedImage old, ArrayList<ImageLengthWrapper> lengths)
+	    throws IOException {
+
+	old = process(old, lengths);
+
+	return toByteArray(old);
     }
 
 }

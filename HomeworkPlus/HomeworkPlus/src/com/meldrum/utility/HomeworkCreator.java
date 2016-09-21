@@ -6,29 +6,29 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.net.URL;
 
 import javax.imageio.ImageIO;
 
+import com.meldrum.domain.shape.PythagStandardQuestionWrapper;
+import com.meldrum.utility.shape.PythagStandardQuestionCreator;
 import com.sun.org.apache.xml.internal.security.utils.Base64;
 
 public class HomeworkCreator {
 
-    public static String createImage(String topic, int numberOfQuestions) {
+    public static PythagStandardQuestionWrapper createQuestion(String topic, int numberOfQuestions) {
 	BufferedImage image = null;
 	String encodedImage = null;
+	PythagStandardQuestionWrapper question = new PythagStandardQuestionWrapper();
 	try {
-	    URL url = new URL("http://localhost:8080/HomeworkPlus/Resources/Pythag1.png");
-	    image = ImageIO.read(url);
-	    image = process(image);
 
-	    encodedImage = toByteArray(image);
+	    question = PythagStandardQuestionCreator.pythagStandardQuestion();
+
 	} catch (IOException e1) {
 	    // TODO Auto-generated catch block
 	    e1.printStackTrace();
 	}
 
-	return encodedImage;
+	return question;
 
     }
 

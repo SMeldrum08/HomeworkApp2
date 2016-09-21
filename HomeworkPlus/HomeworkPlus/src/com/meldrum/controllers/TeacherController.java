@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.meldrum.domain.HomeworkWrapper;
+import com.meldrum.domain.shape.PythagStandardQuestionWrapper;
 import com.meldrum.utility.HomeworkCreator;
 
 @Controller
@@ -40,9 +41,10 @@ public class TeacherController {
     public String viewCreatedHomework(@ModelAttribute("homeworkWrapper") HomeworkWrapper homework, BindingResult result,
 	    Model model) {
 
-	String test1 = HomeworkCreator.createImage(homework.getQuestionType(), homework.getNumberOfQuestions());
+	PythagStandardQuestionWrapper test1 = HomeworkCreator.createQuestion(homework.getQuestionType(),
+		homework.getNumberOfQuestions());
 
-	model.addAttribute("image", test1);
+	model.addAttribute("image", test1.getEncodedQuestionImage());
 	// model.addAttribute("questionImage", test1);
 
 	return "teacherCreatedHomework";
