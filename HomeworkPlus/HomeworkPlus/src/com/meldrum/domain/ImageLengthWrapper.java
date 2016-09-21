@@ -6,7 +6,7 @@ public class ImageLengthWrapper {
 
     int x;
     int y;
-    int number;
+    String number;
     String unit;
 
     public int getX() {
@@ -25,11 +25,11 @@ public class ImageLengthWrapper {
 	this.y = y;
     }
 
-    public int getNumber() {
+    public String getNumber() {
 	return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
 	this.number = number;
     }
 
@@ -41,7 +41,7 @@ public class ImageLengthWrapper {
 	this.unit = unit;
     }
 
-    public ImageLengthWrapper(int x, int y, int number) {
+    public ImageLengthWrapper(int x, int y, String number) {
 
 	this.x = x;
 	this.y = y;
