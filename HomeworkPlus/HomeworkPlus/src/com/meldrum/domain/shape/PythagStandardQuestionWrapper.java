@@ -6,6 +6,7 @@ public class PythagStandardQuestionWrapper {
     String encodedQuestionImage;
     String notAccurate = "Diagram NOT accurately drawn";
     String[] preImageLines;
+    String[] postImageLines;
     String answerBox;
     String answer;
 
@@ -55,6 +56,14 @@ public class PythagStandardQuestionWrapper {
 
     public void setAnswer(String answer) {
 	this.answer = answer;
+    }
+
+    public String[] getPostImageLines() {
+	return postImageLines;
+    }
+
+    public void setPostImageLines(String[] postImageLines) {
+	this.postImageLines = postImageLines;
     }
 
 }

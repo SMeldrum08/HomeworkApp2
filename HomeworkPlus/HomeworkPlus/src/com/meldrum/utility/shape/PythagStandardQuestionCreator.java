@@ -17,7 +17,7 @@ public class PythagStandardQuestionCreator {
 
     static String xValue = "x";
 
-    public static PythagStandardQuestionWrapper pythagStandardQuestion() throws IOException {
+    public static PythagStandardQuestionWrapper pythagStandardQuestion(int questionNumber) throws IOException {
 
 	int VALUES_MIN = 1;
 	int VALUES_MAX = 50;
@@ -71,7 +71,10 @@ public class PythagStandardQuestionCreator {
 
 	String encodedImage = ImageCreator.processImageThenEncode(image, lengthList);
 
+	question.setQuestionNumber(questionNumber + ".");
 	question.setEncodedQuestionImage(encodedImage);
+	question.setPostImageLines(createPostQuestionLinesArray(values));
+	question.setAnswerBox("...........");
 	question.setAnswer("The answer is " + answer);
 
 	return question;
@@ -121,6 +124,20 @@ public class PythagStandardQuestionCreator {
 	}
 
 	return answer;
+
+    }
+
+    public static String[] createPostQuestionLinesArray(ArrayList<String> values) {
+
+	String line1 = "ABC is a right angled triangle.";
+	String line2 = "AB = " + values.get(1);
+	String line3 = "BC = " + values.get(2);
+	String line4 = "AC = " + values.get(0);
+	String line5 = "Calculate the value of x";
+	String line6 = "Give your answer to 2.dp";
+
+	String[] questionLines = { line1, line2, line3, line4, line5, line6 };
+	return questionLines;
 
     }
 

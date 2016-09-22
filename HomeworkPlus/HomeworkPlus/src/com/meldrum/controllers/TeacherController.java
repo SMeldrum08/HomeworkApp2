@@ -44,8 +44,10 @@ public class TeacherController {
 	PythagStandardQuestionWrapper test1 = HomeworkCreator.createQuestion(homework.getQuestionType(),
 		homework.getNumberOfQuestions());
 
-	model.addAttribute("image", test1.getEncodedQuestionImage());
-	model.addAttribute("answer", test1.getAnswer());
+	model.addAttribute("question", test1);
+
+	// model.addAttribute("image", test1.getEncodedQuestionImage());
+	// model.addAttribute("answer", test1.getAnswer());
 	// model.addAttribute("questionImage", test1);
 
 	return "teacherCreatedHomework";
