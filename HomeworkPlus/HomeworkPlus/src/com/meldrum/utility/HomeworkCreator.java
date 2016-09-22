@@ -8,19 +8,23 @@ import com.meldrum.utility.shape.PythagStandardQuestionCreator;
 
 public class HomeworkCreator {
 
-    public static StandardQuestionWrapper createQuestion(String topic, int numberOfQuestions) {
+    public static ArrayList<StandardQuestionWrapper> createQuestion(String topic, int numberOfQuestions) {
 	ArrayList<StandardQuestionWrapper> questions = new ArrayList<StandardQuestionWrapper>();
 
 	StandardQuestionWrapper question = new StandardQuestionWrapper();
 
 	try {
-	    question = PythagStandardQuestionCreator.pythagStandardQuestion(1);
+	    for (int n = 1; n < numberOfQuestions + 1; n++) {
+		question = PythagStandardQuestionCreator.pythagStandardQuestion(n);
+		questions.add(question);
+	    }
+
 	} catch (IOException e) {
 	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
 
-	return question;
+	return questions;
 
     }
 

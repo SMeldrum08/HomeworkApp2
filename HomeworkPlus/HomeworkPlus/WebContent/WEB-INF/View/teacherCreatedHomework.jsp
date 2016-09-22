@@ -19,6 +19,7 @@
 
 Displayed homework <br>
 
+<c:forEach items="${questions}" var="question">
 ${question.questionNumber}
 <img src="data:image/png;base64,${question.encodedQuestionImage}">
 ${question.notAccurate} <br>
@@ -29,7 +30,8 @@ ${question.notAccurate} <br>
 </c:forEach>
 
 ${question.answerBox} <br>
-${question.answer}
+${question.answer} <br>
+</c:forEach>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

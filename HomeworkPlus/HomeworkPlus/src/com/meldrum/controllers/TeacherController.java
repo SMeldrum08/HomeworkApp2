@@ -1,5 +1,7 @@
 package com.meldrum.controllers;
 
+import java.util.ArrayList;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -41,10 +43,10 @@ public class TeacherController {
     public String viewCreatedHomework(@ModelAttribute("homeworkWrapper") HomeworkWrapper homework, BindingResult result,
 	    Model model) {
 
-	StandardQuestionWrapper test1 = HomeworkCreator.createQuestion(homework.getQuestionType(),
+	ArrayList<StandardQuestionWrapper> test1 = HomeworkCreator.createQuestion(homework.getQuestionType(),
 		homework.getNumberOfQuestions());
 
-	model.addAttribute("question", test1);
+	model.addAttribute("questions", test1);
 
 	// model.addAttribute("image", test1.getEncodedQuestionImage());
 	// model.addAttribute("answer", test1.getAnswer());
