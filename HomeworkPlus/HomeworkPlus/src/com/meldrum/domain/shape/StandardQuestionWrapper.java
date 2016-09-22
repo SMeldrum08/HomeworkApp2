@@ -4,7 +4,7 @@ public class StandardQuestionWrapper {
 
     String questionNumber;
     String encodedQuestionImage;
-    String notAccurate = "Diagram NOT accurately drawn";
+    String notAccurate = "Diagram <b>NOT</b> accurately drawn";
     String[] preImageLines;
     String[] postImageLines;
     String answerBox;

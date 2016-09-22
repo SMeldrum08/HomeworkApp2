@@ -19,19 +19,25 @@
 
 Displayed homework <br>
 
+<div class="examQuestions">
 <c:forEach items="${questions}" var="question">
-${question.questionNumber}
-<img src="data:image/png;base64,${question.encodedQuestionImage}">
-${question.notAccurate} <br>
+${question.questionNumber} <br>
+<div class="examQuestionBody">
+<span class="questionImage"><img src="data:image/png;base64,${question.encodedQuestionImage}"></span>
+${question.notAccurate} <br><br>
 <c:forEach begin="0" end="${fn:length(question.postImageLines) - 1}" var="index">
    
    <c:out value="${question.postImageLines[index]}"/><br>
 
 </c:forEach>
+<br><br><br>
 
-${question.answerBox} <br>
+<div class="answerBox">${question.answerBox} <br></div>
 ${question.answer} <br>
+</div>
 </c:forEach>
+
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

@@ -71,10 +71,10 @@ public class PythagStandardQuestionCreator {
 
 	String encodedImage = ImageCreator.processImageThenEncode(image, lengthList);
 
-	question.setQuestionNumber(questionNumber + ".");
+	question.setQuestionNumber("<b>" + questionNumber + ".</b>");
 	question.setEncodedQuestionImage(encodedImage);
 	question.setPostImageLines(createPostQuestionLinesArray(values));
-	question.setAnswerBox("...........");
+	question.setAnswerBox("..............................cm");
 	question.setAnswer("The answer is " + answer);
 
 	return question;
