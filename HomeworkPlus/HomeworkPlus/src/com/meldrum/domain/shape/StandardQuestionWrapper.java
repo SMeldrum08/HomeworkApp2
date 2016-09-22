@@ -1,6 +1,6 @@
 package com.meldrum.domain.shape;
 
-public class PythagStandardQuestionWrapper {
+public class StandardQuestionWrapper {
 
     String questionNumber;
     String encodedQuestionImage;

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.meldrum.domain.HomeworkWrapper;
-import com.meldrum.domain.shape.PythagStandardQuestionWrapper;
+import com.meldrum.domain.shape.StandardQuestionWrapper;
 import com.meldrum.utility.HomeworkCreator;
 
 @Controller
@@ -41,7 +41,7 @@ public class TeacherController {
     public String viewCreatedHomework(@ModelAttribute("homeworkWrapper") HomeworkWrapper homework, BindingResult result,
 	    Model model) {
 
-	PythagStandardQuestionWrapper test1 = HomeworkCreator.createQuestion(homework.getQuestionType(),
+	StandardQuestionWrapper test1 = HomeworkCreator.createQuestion(homework.getQuestionType(),
 		homework.getNumberOfQuestions());
 
 	model.addAttribute("question", test1);

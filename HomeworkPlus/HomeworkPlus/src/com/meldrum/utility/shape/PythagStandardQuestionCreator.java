@@ -9,7 +9,7 @@ import java.util.Collections;
 import javax.imageio.ImageIO;
 
 import com.meldrum.domain.ImageLengthWrapper;
-import com.meldrum.domain.shape.PythagStandardQuestionWrapper;
+import com.meldrum.domain.shape.StandardQuestionWrapper;
 import com.meldrum.utility.ImageCreator;
 import com.meldrum.utility.Random;
 
@@ -17,7 +17,7 @@ public class PythagStandardQuestionCreator {
 
     static String xValue = "x";
 
-    public static PythagStandardQuestionWrapper pythagStandardQuestion(int questionNumber) throws IOException {
+    public static StandardQuestionWrapper pythagStandardQuestion(int questionNumber) throws IOException {
 
 	int VALUES_MIN = 1;
 	int VALUES_MAX = 50;
@@ -27,7 +27,7 @@ public class PythagStandardQuestionCreator {
 	ImageLengthWrapper length2 = null;
 	ImageLengthWrapper length3 = null;
 
-	PythagStandardQuestionWrapper question = new PythagStandardQuestionWrapper();
+	StandardQuestionWrapper question = new StandardQuestionWrapper();
 	int imageUsed = Random.randomInt(0, 2);
 	// int imageUsed = 0;
 
