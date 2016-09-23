@@ -1,0 +1,41 @@
+package com.meldrum.utility.algebra;
+
+import com.meldrum.domain.shape.StandardQuestionWrapper;
+import com.meldrum.utility.Random;
+
+public class QuadraticFormulaStandardQuestionCreator {
+
+    public static StandardQuestionWrapper quadraticFormulaStandardQuestion() {
+
+	StandardQuestionWrapper question = new StandardQuestionWrapper();
+
+	/*
+	 * This works but need to prepare for unanswerable questions by using
+	 * discriminant check
+	 *
+	 */
+	int[] coefs = { Random.randomInt(1, 8), Random.randomNonZeroInt(-8, 10), Random.randomNonZeroInt(-8, 10) };
+
+	String quadEquation = coefs[0] + "<i>x</i><sup>2</sup> " + coefs[1] + "<i>x</i> " + coefs[2];
+
+	question.setQuestionNumber(quadEquation);
+
+	return question;
+
+    }
+
+    private static double[] workOutAnswer(int[] coefficients) {
+
+	int a = coefficients[0];
+	int b = coefficients[1];
+	int c = coefficients[2];
+
+	double positiveAnswer = (-b + Math.sqrt(b * b - 4 * a * c)) / (2 * a);
+	double negativeAnswer = (-b - Math.sqrt(b * b - 4 * a * c)) / (2 * a);
+
+	double[] answers = { positiveAnswer, negativeAnswer };
+
+	return answers;
+
+    }
+}

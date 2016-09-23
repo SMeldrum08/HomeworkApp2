@@ -23,13 +23,20 @@ Displayed homework <br>
 <c:forEach items="${questions}" var="question">
 ${question.questionNumber} <br>
 <div class="examQuestionBody">
-<span class="questionImage"><img src="data:image/png;base64,${question.encodedQuestionImage}"></span>
-${question.notAccurate} <br><br>
-<c:forEach begin="0" end="${fn:length(question.postImageLines) - 1}" var="index">
-   
-   <c:out value="${question.postImageLines[index]}"/><br>
 
-</c:forEach>
+<c:if test="${not empty question.encodedQuestionImage}">
+	<span class="questionImage"><img src="data:image/png;base64,${question.encodedQuestionImage}"></span>
+	${question.notAccurate} <br><br>
+</c:if>
+
+
+<c:if test="${not empty question.postImageLines}">
+	<c:forEach begin="0" end="${fn:length(question.postImageLines) - 1}" var="index">
+   
+   		<c:out value="${question.postImageLines[index]}"/><br>
+
+	</c:forEach>
+</c:if>
 <br><br><br>
 
 <div class="answerBox">${question.answerBox} <br></div>

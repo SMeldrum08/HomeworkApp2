@@ -24,6 +24,7 @@ Please select a topic for your homework and how many questions.
                     <td><form:label path="questionType">Question Topic</form:label></td>
                     <td><form:select path="questionType">
                     <option value="pythagoras">Pythagoras</option>
+                    <option value="quadFormula">Quadratic Formula</option>
                     </form:select>
                     </td>
                 </tr>
