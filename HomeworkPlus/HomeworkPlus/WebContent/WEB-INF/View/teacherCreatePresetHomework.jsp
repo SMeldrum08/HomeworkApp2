@@ -19,6 +19,8 @@
 Please select a topic for your homework and how many questions.
 
 <form:form method="POST" action="/HomeworkPlus/createdHomework" modelAttribute="homeworkWrapper">
+             
+             <div class="repeated">
              <table>
                 <tr>
                     <td><form:label path="questionType">Question Topic</form:label></td>
@@ -39,13 +41,14 @@ Please select a topic for your homework and how many questions.
                     </form:select>
                     </td>
                 </tr>
-                <tr>
-                    <td><input type="submit" value="Create" /></td>
-                </tr>
-            </table>
+                </table>
+            		<a href="#" class="repeat">Add Question</a>
+        	</div>
+                <input type="submit" value="Create" />
         </form:form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="Resources/js/repeatingForm.js"></script>
 </body>
 </html>

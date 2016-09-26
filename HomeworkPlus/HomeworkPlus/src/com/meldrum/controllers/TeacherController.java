@@ -43,14 +43,10 @@ public class TeacherController {
     public String viewCreatedHomework(@ModelAttribute("homeworkWrapper") HomeworkWrapper homework, BindingResult result,
 	    Model model) {
 
-	ArrayList<StandardQuestionWrapper> test1 = HomeworkCreator.createQuestion(homework.getQuestionType(),
-		homework.getNumberOfQuestions());
+	ArrayList<StandardQuestionWrapper> test1 = HomeworkCreator.createQuestion(homework.getQuestionType(1),
+		homework.getNumberOfQuestions(1));
 
 	model.addAttribute("questions", test1);
-
-	// model.addAttribute("image", test1.getEncodedQuestionImage());
-	// model.addAttribute("answer", test1.getAnswer());
-	// model.addAttribute("questionImage", test1);
 
 	return "teacherCreatedHomework";
 
