@@ -21,12 +21,24 @@ Displayed homework <br>
 
 <div class="examQuestions">
 <c:forEach items="${questions}" var="question">
-${question.questionNumber} <br>
+${question.questionNumber}
 <div class="examQuestionBody">
+
+<c:if test="${not empty question.preImageLines}">
+	<c:forEach begin="0" end="${fn:length(question.postImageLines) - 1}" var="index">
+   
+   		<c:out value="${question.preImageLines[index]}"/><br>
+
+	</c:forEach>
+</c:if>
 
 <c:if test="${not empty question.encodedQuestionImage}">
 	<span class="questionImage"><img src="data:image/png;base64,${question.encodedQuestionImage}"></span>
 	${question.notAccurate} <br><br>
+</c:if>
+
+<c:if test="${not empty question.centralEquation}">
+	<div class="centralEquation"><br>${question.centralEquation}<br><br></div>
 </c:if>
 
 

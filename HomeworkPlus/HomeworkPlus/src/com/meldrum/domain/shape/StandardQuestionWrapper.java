@@ -5,6 +5,7 @@ public class StandardQuestionWrapper {
     String questionNumber;
     String encodedQuestionImage;
     String notAccurate = "Diagram <b>NOT</b> accurately drawn";
+    String centralEquation;
     String[] preImageLines;
     String[] postImageLines;
     String answerBox;
@@ -32,6 +33,14 @@ public class StandardQuestionWrapper {
 
     public void setNotAccurate(String notAccurate) {
 	this.notAccurate = notAccurate;
+    }
+
+    public String getCentralEquation() {
+	return centralEquation;
+    }
+
+    public void setCentralEquation(String centralEquation) {
+	this.centralEquation = centralEquation;
     }
 
     public String[] getPreImageLines() {

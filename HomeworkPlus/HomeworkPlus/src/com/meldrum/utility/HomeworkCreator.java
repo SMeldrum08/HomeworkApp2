@@ -28,7 +28,7 @@ public class HomeworkCreator {
 	    }
 	} else if (topic.equals("quadFormula")) {
 	    for (int n = 1; n < numberOfQuestions + 1; n++) {
-		question = QuadraticFormulaStandardQuestionCreator.quadraticFormulaStandardQuestion();
+		question = QuadraticFormulaStandardQuestionCreator.quadraticFormulaStandardQuestion(n);
 		questions.add(question);
 	    }
 
