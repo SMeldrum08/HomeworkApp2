@@ -43,8 +43,8 @@ public class TeacherController {
     public String viewCreatedHomework(@ModelAttribute("homeworkWrapper") HomeworkWrapper homework, BindingResult result,
 	    Model model) {
 
-	ArrayList<StandardQuestionWrapper> test1 = HomeworkCreator.createQuestion(homework.getQuestionType(1),
-		homework.getNumberOfQuestions(1));
+	ArrayList<StandardQuestionWrapper> test1 = HomeworkCreator.createQuestion(homework.getQuestionType(),
+		homework.getNumberOfQuestions());
 
 	model.addAttribute("questions", test1);
 

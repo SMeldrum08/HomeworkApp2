@@ -17,10 +17,12 @@
 <%@include file="Main/Templates/teacherSideBar.html" %>
 
 
-Displayed homework <br>
+Displayed homework 
+<span class="printButton"><input type="button" onclick="printDiv('examQuestions')" value="print" /></span><br>
 
-<div class="examQuestions">
+<div id="examQuestions">
 <c:forEach items="${questions}" var="question">
+<div class="pageBreak">
 ${question.questionNumber}
 <div class="examQuestionBody">
 
@@ -52,7 +54,7 @@ ${question.questionNumber}
 <br><br><br>
 
 <div class="answerBox">${question.answerBox} <br></div>
-${question.answer} <br>
+</div>
 </div>
 </c:forEach>
 
@@ -60,5 +62,6 @@ ${question.answer} <br>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="Resources/js/repeatingForm.js"></script>
 </body>
 </html>

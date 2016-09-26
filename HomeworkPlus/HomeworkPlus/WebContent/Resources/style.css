@@ -31,3 +31,5 @@ h1 {
 .centralEquation {
 	padding-left: 10%;
 }
+
+.pageBreak { page-break-after: always; }
